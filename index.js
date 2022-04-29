@@ -1,4 +1,4 @@
-export function integerMath(number1, number2, operation) {
+function integerMath(number1, number2, operation) {
     smallOperation = operation.toLowerCase()
     operationObject = {
         "addition": "+",
@@ -10,7 +10,14 @@ export function integerMath(number1, number2, operation) {
         "exponentiation": "**"
     }
 
-    const result = eval(`${number1} ${operationObject[operation]} ${number2}`)
+    const rounded1 = Math.round(number1)
+    const rounded2 = Math.round(number2)
+
+    const result = eval(`${rounded1} ${operationObject[operation]} ${rounded2}`)
     
     return result
+}
+
+module.exports = {
+    integerMath,
 }
